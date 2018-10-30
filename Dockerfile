@@ -31,11 +31,11 @@ RUN \
   sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome
 
 # Install chromedriver
-#RUN \
-#  wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip && \
-#  unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ && \
-#  rm /tmp/chromedriver.zip && \
-#  chmod ugo+rx /usr/bin/chromedriver
+RUN \
+  wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip && \
+  unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ && \
+  rm /tmp/chromedriver.zip && \
+  chmod ugo+rx /usr/bin/chromedriver
 
 # Install dpl and heroku-cli
 RUN \
