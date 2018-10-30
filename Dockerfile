@@ -11,13 +11,7 @@ RUN \
     cmake \
     nodejs \
     software-properties-common \
-    default-jdk \
-    sudo \
     unzip
-
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-USER docker
 
 # Install yarn
 RUN \
@@ -35,12 +29,6 @@ RUN \
   apt-get update -yqqq && \
   apt-get install -y google-chrome-stable > /dev/null 2>&1 && \
   sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome
-
-#Install elasticsearch
-RUN \
-  wget -O /tmp/es.deb https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.deb && \
-  sudo dpkg -i es.deb && \
-  sudo service elasticsearch start
 
 # Install chromedriver
 RUN \
