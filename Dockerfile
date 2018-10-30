@@ -30,6 +30,13 @@ RUN \
   apt-get install -y google-chrome-stable > /dev/null 2>&1 && \
   sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome
 
+#Install elasticsearch
+RUN \
+  wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -  && \
+  echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list && \
+  apt-get update -yqqq && \
+  apt-get -y default-jdk elasticsearch
+
 # Install chromedriver
 RUN \
   wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip && \
