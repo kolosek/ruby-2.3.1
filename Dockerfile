@@ -54,6 +54,7 @@ RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 
 
 ENV RAILS_VERSION 4.2.5.1
 
+RUN gem uninstall rake
 RUN gem install bundler
 RUN gem install semaphore_test_boosters
 RUN gem install rubygems-bundler
