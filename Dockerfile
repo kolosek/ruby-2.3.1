@@ -11,7 +11,8 @@ RUN \
     cmake \
     nodejs \
     software-properties-common \
-    unzip
+    unzip \
+    wkhtmltopdf
 
 # Install yarn
 RUN \
@@ -52,5 +53,7 @@ RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -r
 RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV RAILS_VERSION 4.2.5.1
+
+RUN gem install semaphore_test_boosters
 
 RUN gem install rails --version "$RAILS_VERSION"
