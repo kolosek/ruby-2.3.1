@@ -65,9 +65,8 @@ RUN apt-get update && apt-get install -y mysql-client postgresql postgresql-cont
 
 
 #PostgreSQL setup
-su -c "psql -c \"CREATE ROLE ubuntu WITH LOGIN PASSWORD 'password' \"" postgres
-su -c "psql -c \"ALTER ROLE ubuntu SUPERUSER \"" postgres
-
+RUN su -c "psql -c \"CREATE ROLE ubuntu WITH LOGIN PASSWORD 'password' \"" postgres
+RUN su -c "psql -c \"ALTER ROLE ubuntu SUPERUSER \"" postgres
 
 ENV RAILS_VERSION 4.2.5.1
 
