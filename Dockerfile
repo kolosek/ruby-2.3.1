@@ -49,13 +49,13 @@ RUN \
   gem install dpl
 
 # Install ElasticSearch
-RUN \
-  add-apt-repository "ppa:webupd8team/java" && \
-  apt install -y oracle-java8-set-default && \
-  wget -O /tmp/es.deb https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.2.deb && \
-  dpkg -i /tmp/es.deb && \
-  systemctl enable elasticsearch.service && \
-  systemctl start elasticsearch.service
+#RUN \
+#  add-apt-repository "ppa:webupd8team/java" && \
+#  apt install -y oracle-java8-set-default && \
+#  wget -O /tmp/es.deb https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.2.deb && \
+#  dpkg -i /tmp/es.deb && \
+#  systemctl enable elasticsearch.service && \
+#  systemctl start elasticsearch.service
 
 # see update.sh for why all "apt-get install"s have to stay as one long line
 RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
@@ -65,8 +65,8 @@ RUN apt-get update && apt-get install -y mysql-client postgresql postgresql-cont
 
 
 #PostgreSQL setup
-RUN su -c "psql -c \"CREATE ROLE ubuntu WITH LOGIN PASSWORD 'password' \"" postgres
-RUN su -c "psql -c \"ALTER ROLE ubuntu SUPERUSER \"" postgres
+#RUN su -c "psql -c \"CREATE ROLE ubuntu WITH LOGIN PASSWORD 'password' \"" postgres
+#RUN su -c "psql -c \"ALTER ROLE ubuntu SUPERUSER \"" postgres
 
 ENV RAILS_VERSION 4.2.5.1
 
