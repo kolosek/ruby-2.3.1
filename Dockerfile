@@ -2,9 +2,10 @@ FROM ruby:2.3.1
 MAINTAINER Kolosek
 
 # Initial setup
+RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
+
 RUN \
   curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-  sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list \
   apt-get update -yq && \
   apt-get install -y \
     apt-transport-https \
