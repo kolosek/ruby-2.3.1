@@ -14,7 +14,11 @@ RUN \
     unzip \
     xvfb \
     libfontconfig \
-    wkhtmltopdf
+    wkhtmltopdf \
+    qt4-dev-tools \
+    libqt4-dev \
+    libqt4-core \
+    libqt4-gui
 
 # Install yarn
 RUN \
